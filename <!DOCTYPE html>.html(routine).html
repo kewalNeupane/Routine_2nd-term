@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Today's Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .exam-box {
+      background-color: #1f1f1f;
+      border-radius: 12px;
+      padding: 30px;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    h1 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="exam-box">
+    <h1>📅 Today's Exam</h1>
+    <p id="exam-info">Loading...</p>
+  </div>
+
+  <script>
+    // 🗓️ Define your exam routine here (format: 'YYYY-MM-DD': 'Subject')
+    const examRoutine = {
+      "2025-05-18": "English",
+      "2025-05-20": "Nepali",
+      "2025-05-22": "Maths",
+      "2025-05-24": "Physics",
+      "2025-05-26": "Chemistry",
+      "2025-05-27": "Computer"
+    };
+
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+
+    // Get the subject from the routine
+    const examToday = examRoutine[todayStr];
+
+    // Show result
+    const examInfo = document.getElementById('exam-info');
+    if (examToday) {
+      examInfo.textContent = `Today is your ${examToday} exam 📚`;
+    } else {
+      examInfo.textContent = "No exam today 🎉";
+    }
+  </script>
+</body>
+</html>
